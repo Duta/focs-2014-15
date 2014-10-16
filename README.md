@@ -57,17 +57,44 @@ let int_of_day day = failwith "Not completed";;
 
 This is a starting point for you to complete the exercise.
 
-There will (once they are released - they're very nearly here) be testing scripts too.
-
 Downloading New Assignments:
 ----------------------------
 
 Very occasionally (okay, every week) you'll be set new assignments.
 
-To download them, make sure you're in the 'focs' folder, and type:
+To download them, make sure you're in the `focs` folder, and type:
 
     git pull
 
 This will download any new assignments, making sure you're up to date.
 
-You may also need to do this from time to time if we add or change the test scripts.
+You may also need to do this from time to time if we add or change test scripts.
+
+Testing Assignments:
+--------------------
+
+To test your assignments, you need to be in the `week-n` folder (e.g. `week-2`)
+in a terminal session, and run the testing script for the exercise you're working on.
+
+As an example, this is how you'd test week 2's 1st exercise:
+
+    cd path/to/your/work/folder/focs/week-2
+    python test_ex1.pyc
+
+The output should be self-explanatory. If you pass the test, it will ask you to
+generate an access token for canvas, and will upload your file (along with a
+hash value used for detecting plagiarism) to canvas.
+
+Please don't try and upload your assignments to canvas manually!
+If you do, you'll get a mark of 0.
+
+The list of current testing scripts is:
+
+    focs/week-2/test_ex1.pyc
+    focs/week-2/test_ex2.pyc
+    focs/week-2/test_prob.pyc
+
+**At the moment, the scripts simply check whether your assignments pass the
+tests, and don't upload them to canvas. We will be adding this in the next
+couple of days. When we add this, `git pull` (as discussed in "Downloading New
+Assignments") to get the updated test scripts.**
