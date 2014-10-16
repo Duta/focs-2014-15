@@ -46,7 +46,10 @@ This will create a new file in the exercise-1 folder called `wk2ex1.ml`.
 This looks like this:
 
 ```ocaml
+open Bench_common;;
 (* Write the following function: *)
+
+(* type weekday = Mon | Tue | Wed | Thu | Fri | Sat | Sun *)
 
 (* val int_of_day : weekday -> int *)
 let int_of_day day = failwith "Not completed";;
@@ -54,7 +57,7 @@ let int_of_day day = failwith "Not completed";;
 
 This is a starting point for you to complete the exercise.
 
-There will (once they are released) be testing scripts in the respective folders.
+There will (once they are released - they're very nearly here) be testing scripts too.
 
 Downloading New Assignments:
 ----------------------------
@@ -66,3 +69,5 @@ To download them, make sure you're in the 'focs' folder, and type:
     git pull
 
 This will download any new assignments, making sure you're up to date.
+
+You may also need to do this from time to time if we add or change the test scripts.
