@@ -1,4 +1,4 @@
-let contents = "open Weekday;;
+let contents = "open Bench_common;;
 (* Write the following function: *)
 
 (* type weekday = Mon | Tue | Wed | Thu | Fri | Sat | Sun *)

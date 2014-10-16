@@ -1,4 +1,4 @@
-let contents = "open Weekday;;
+let contents = "open Bench_common;;
 (* Write the following function: *)
 
 (* val days_of_october : int -> weekday *)
