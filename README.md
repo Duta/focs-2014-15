@@ -83,8 +83,24 @@ You can do the same on the virtual machine image.
 	cd requests 
 	python setup.py install --user
 
+Getting a Canvas Access Token:
+------------------------------
 
+In order for the marking script to upload your submission, you need to have an authentication token. This token will provide access to your canvas account, and should be treated as a password. Never share your access token with someone else, and it’s suggested that you only make this token available for a day, and generate a new one every time you submit an assignment.
 
+ - First, navigate to your profile settings on Canvas.
+ 
+	https://birmingham.instructure.com/profile/settings
+
+ - Toward the bottom of this page, click to generate a new access token.
+ 
+![Access_Token](http://puu.sh/cg4h4/484c9902b8.jpg)
+ 
+ -Give the token a name under the "Purpose" entry box, select a suitable date (Generally the next day) and generate the token.
+ 
+![Generate_Token](http://puu.sh/cg4om/55cc8a6efa.jpg)
+ 
+ - You will be faced with a page that has your full token. Take a note of it as you’ll need it when running the testing script.
 
 Testing Assignments:
 --------------------
