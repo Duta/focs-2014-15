@@ -70,6 +70,22 @@ This will download any new assignments, making sure you're up to date.
 
 You may also need to do this from time to time if we add or change test scripts.
 
+Installing Python:
+------------------
+
+Python is a requirement for the marking script to function.
+On the computer you wish to use to upload your assignments you need to have OCaml installed, Python installed and the requests module installed for Python.
+
+The lab machines already contain a copy of Python. To install 'requests' for the marking script to use, please run the following commands on the terminal. 
+You can do the same on the virtual machine image.
+
+	git clone git://github.com/kennethreitz/requests.git
+	cd requests 
+	python setup.py install --user
+
+
+
+
 Testing Assignments:
 --------------------
 
