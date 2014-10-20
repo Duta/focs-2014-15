@@ -140,10 +140,12 @@ As an example, this is how you'd test week 2's 1st exercise:
 
 The output should be self-explanatory. If you pass the test, it will ask you to
 generate an access token for canvas, and will upload your file (along with a
-hash value used for detecting plagiarism) to canvas.
+hash value used for detecting plagiarism) to canvas. See the instructions above about 
+how to get the token. Once it is displayed in a Canvas window copy-and-paste it into
+the terminal window then hit return. 
 
-Please don't try and upload your assignments to canvas manually!
-If you do, you'll get a mark of 0.
+**Please don't try and upload your assignments to canvas manually!
+If you do, you'll get a mark of 0.**
 
 The list of current testing scripts is:
 
