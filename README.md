@@ -70,8 +70,10 @@ This will download any new assignments, making sure you're up to date.
 
 You may also need to do this from time to time if we add or change test scripts.
 
-Installing Python:
-------------------
+Installing Prerequistes:
+------------------------
+
+### `Requests` Python module
 
 Python is a requirement for the marking script to function.
 On the computer you wish to use to upload your assignments you need to have OCaml installed, Python installed and the requests module installed for Python.
@@ -84,6 +86,27 @@ You can do the same on the virtual machine image.
 	python setup.py install --user
 
 You can then safely delete the `requests` folder.
+
+### Dependencies for the UG04/LG04 computer labs
+
+The default installation of OCaml is too old. To access the new installation you need to type these commands every time you use the lab machines:
+
+	module load OCaml
+	module load OPAM
+
+Note that `ocaml` will still run even if you forget to do this but you will get strange errors!
+
+Next you need to initialise your OPAM repository and upgrade it and install the missing dependencies. **You only need to do this once!**
+
+	opam init
+	opam upgrade
+	opam install quickcheck
+	
+You will also need to upgrade your environment, as indicated by OPAM:
+
+	eval `opam config env`
+
+
 
 Getting a Canvas Access Token:
 ------------------------------
