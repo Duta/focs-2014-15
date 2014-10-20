@@ -128,3 +128,4 @@ The list of current testing scripts is:
     focs/week-2/test_ex2.py
     focs/week-2/test_prob.py
 
+If everything works out correctly you should see no further output. If there are any errors please contact us immediately!
