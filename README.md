@@ -83,6 +83,8 @@ You can do the same on the virtual machine image.
 	cd requests 
 	python setup.py install --user
 
+You can then safely delete the `requests` folder.
+
 Getting a Canvas Access Token:
 ------------------------------
 
@@ -111,7 +113,7 @@ in a terminal session, and run the testing script for the exercise you're workin
 As an example, this is how you'd test week 2's 1st exercise:
 
     cd path/to/your/work/folder/focs/week-2
-    python test_ex1.pyc
+    python test_ex1.py
 
 The output should be self-explanatory. If you pass the test, it will ask you to
 generate an access token for canvas, and will upload your file (along with a
@@ -122,11 +124,7 @@ If you do, you'll get a mark of 0.
 
 The list of current testing scripts is:
 
-    focs/week-2/test_ex1.pyc
-    focs/week-2/test_ex2.pyc
-    focs/week-2/test_prob.pyc
+    focs/week-2/test_ex1.py
+    focs/week-2/test_ex2.py
+    focs/week-2/test_prob.py
 
-**At the moment, the scripts simply check whether your assignments pass the
-tests, and don't upload them to canvas. We will be adding this in the next
-couple of days. When we add this, `git pull` (as discussed in "Downloading New
-Assignments") to get the updated test scripts.**
