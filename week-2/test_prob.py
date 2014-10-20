@@ -32,7 +32,7 @@ subprocess.call('rm -rf '+assignment_name+'.* prob', shell=True)
 
 ensure_file(hash_file, '\nIt appears that your code failed the test, above should be information regarding the failed result(s).')
 
-print('Congratulations, your code passed the automated tests. The hashing function isn\'t yet complete, so please bear with us for the time being.')
+print('Congratulations, your code passed the automated tests.')
 
 token = raw_input('Please enter your Canvas authentication token:\n')
 with open(hash_file, 'r') as key_content:
@@ -42,6 +42,8 @@ submit = requests.post('https://birmingham.instructure.com/api/v1/courses/9775/a
 info = submit.json()
 if 'errors' in info.keys():
  	print(info['errors'])
-
+else:
+	print('Success.')
+	
 subprocess.call('rm -rf '+hash_file, shell=True)
 
