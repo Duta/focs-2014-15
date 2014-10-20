@@ -127,8 +127,8 @@ In order for the marking script to upload your submission, you need to have an a
  
  - You will be faced with a page that has your full token. Take a note of it as you’ll need it when running the testing script.
 
-Testing Assignments:
---------------------
+Testing and Submitting Assignments:
+-----------------------------------
 
 To test your assignments, you need to be in the `week-n` folder (e.g. `week-2`)
 in a terminal session, and run the testing script for the exercise you're working on.
