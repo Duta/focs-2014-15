@@ -1,0 +1,6 @@
+Implement a function min8 which finds the minimum of a tuple with 8 elements.
+
+Its type should be min8 : 'a * 'a * 'a * 'a * 'a * 'a * 'a * 'a -> 'a.
+
+Example:
+	min8 (1, 2, 3, 9, 8, 7, 4, 5) = 1.

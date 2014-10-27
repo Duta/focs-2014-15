@@ -1,0 +1,6 @@
+Implement a function sort4 which sorts its 4 arguments.
+
+Its type should be sort4 : 'a * 'a * 'a * 'a -> 'a * 'a * 'a * 'a.
+
+Example:
+	sort4 (3, 2, 6, 5) = (2, 3, 5, 6).

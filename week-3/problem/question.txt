@@ -1,0 +1,6 @@
+Implement a function med7 which returns the median (middle one in order) of 7 arguments.
+
+Its type should be med7 : 'a -> 'a -> 'a -> 'a -> 'a -> 'a -> 'a -> 'a.
+
+Example:
+	med7 3 4 1 6 8 3 1 = 3
