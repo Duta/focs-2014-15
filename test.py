@@ -1,4 +1,4 @@
-import requests, subprocess, os, os.path, validator
+import base64, requests, subprocess, os, os.path, validator
 
 one, two, prob = xrange(3)
 
