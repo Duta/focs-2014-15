@@ -1,17 +1,26 @@
-import requests, subprocess, os, validator
+import requests, subprocess, os, os.path, validator
 
 one, two, prob = xrange(3)
 
 # assignment_code :: str
 # week            :: str
 # exercise        :: {one, two, prob}
-def test(assignment_code, week, exercise):
+def test(assignment_code, week, exercise, *checks):
     # Helper functions
     def ensure_file(file, message):
         if not os.path.exists(file):
             print(message)
-            exit()
+            exit(1)
     ensure_file_default = lambda file: ensure_file(file, 'The file "' + file + '" could not be found. Exiting...')
+    no_assmt_msg = """
+File %s not found. You can create a skeleton
+file by going into the %s directory,
+and then running `ocaml gen-skeleton.ml`.
+
+Exiting...
+""".strip()
+    ensure_file_assmt = lambda file: ensure_file(file, no_assmt_msg % (file, os.path.dirname(file)))
+
     run_command = lambda command: subprocess.call(command, shell=True)
     remove_file = lambda file: run_command('rm -rf ' + file)
 
@@ -37,15 +46,19 @@ def test(assignment_code, week, exercise):
         ('cmos', ex_tester, 'cmo'),
         ('cmos', ex_tester, 'cmi')
     ]
+
+    ensure_file_assmt(ex_folder + '/' + ex_full_name + '.ml')
     for folder, file, extension in required_files:
         ensure_file_default(folder + '/' + file + '.' + extension)
 
-    issues = validator.validate(ex_folder + '/' + ex_full_name + '.ml')
+    issues = validator.validate(ex_folder + '/' + ex_full_name + '.ml', *checks)
 
     if issues:
         print 'Issues with your program:'
         print issues
         exit()
+
+    check_integrity()
 
     # Prep for compilation
     for folder, file, extension in required_files:
@@ -107,7 +120,7 @@ def test(assignment_code, week, exercise):
     payload = {
         'access_token': token,
         'submission[submission_type]': 'online_text_entry',
-        'submission[body]': submission
+        'submission[body]': base64.b64encode(submission)
     }
     ex_url = 'https://birmingham.instructure.com/api/v1/courses/9775/assignments/'+assignment_code+'/submissions'
     submission_info = requests.post(ex_url, params=payload).json()
@@ -118,3 +131,20 @@ def test(assignment_code, week, exercise):
         print submission_info['errors']
     else:
         print 'Your assignment has been submitted to Canvas. Well done!'
+
+def check_integrity():
+    if not os.path.exists("cmos/files.sha256sums"):
+        # Maybe not available for this week.
+        return True
+
+    cmdraw = """
+
+    sha256sum -c --quiet cmos/files.sha256sums
+    || (echo;echo "Seems like you modified some files?
+             Run 'git checkout <file>' to get a fresh copy.";echo)
+
+    """
+
+    cmd = ' '.join(line.strip() for line in cmdraw.splitlines())
+
+    os.system(cmd)

@@ -1,0 +1,8 @@
+Write a function that checks whether an element is a member of a list. 
+
+member : 'a -> 'a list -> bool
+
+For example,
+  member 2 [1; 2; 3] = true
+  member 7 [1; 2; 3; 4] = false
+  member 'a' [ ] = false

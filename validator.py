@@ -1,6 +1,6 @@
 import re, subprocess, os
 
-def validate(path):
+def validate(path, *checks):
     stripped_path = path + '_stripped'
     ensure_runhaskell_installed()
     subprocess.call('runhaskell ../StripComments.hs ' + path + ' ' + stripped_path, shell=True)
@@ -9,8 +9,10 @@ def validate(path):
     with open(stripped_path) as stripped_file:
         program = stripped_file.read()
     subprocess.call('rm -rf ' + stripped_path, shell=True)
-    res = check_for_recursion(program)
-    if res is None: res = check_for_illegal_modules(program)
+
+    for check in checks:
+        res = check(program)
+        if res: break
     return res
 
 def check_for_recursion(program):
@@ -30,7 +32,7 @@ def ensure_runhaskell_installed():
 
     import subprocess
 
-    if subprocess.call("which runhaskell", shell=True) == 0:
+    if subprocess.call("which runhaskell > /dev/null", shell=True) == 0:
         # Returned no error, so installed.
         return
 
