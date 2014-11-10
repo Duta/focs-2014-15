@@ -1,0 +1,19 @@
+Consider the llama game. You are given the type of llamas:
+
+    type llama = R | L | O
+
+where R is a right-facing llama, L a left-facing llama, and O a llama-sized gap. The position is a llama list. The leading and trailing Os can be ignored.
+
+Your task is to write a function is_move : llama list -> llama list -> bool which returns true if it is possible to go from the first position to the second position in a single move and false otherwise.
+
+For example:
+
+    is_move [R; O; L] [O; R; L] = true
+    is_move [R; O; L] [R; L] = true
+    is_move [R; O; L] [L; R] = false
+
+Hint: You will need the following auxiliary functions:
+
+ - given a position, remove all leading and trailing Os
+ - given two positions, strip their common prefix
+ - given two positions, strip their common suffix

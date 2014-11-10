@@ -34,18 +34,22 @@ Exiting...
     ex_binary = ex_name + '_bin'
 
     # Ensure needed files exist
-    required_files = [
-        ('..', 'bench', 'cmo'),
-        ('..', 'bench', 'cmi'),
-        ('..', 'bench_common', 'cmo'),
-        ('..', 'bench_common', 'cmi'),
-        (ex_folder, ex_full_name, 'ml'),
-        (ex_folder, ex_full_name, 'mli'),
-        ('cmos', ex_runner, 'cmo'),
-        ('cmos', ex_runner, 'cmi'),
-        ('cmos', ex_tester, 'cmo'),
-        ('cmos', ex_tester, 'cmi')
-    ]
+    required_files = (([
+            ('cmos', 'common', 'cmo'),
+            ('cmos', 'common', 'cmi'),
+        ] if os.path.exists("cmos/common.cmo") else [])
+        + [
+            ('..', 'bench', 'cmo'),
+            ('..', 'bench', 'cmi'),
+            ('..', 'bench_common', 'cmo'),
+            ('..', 'bench_common', 'cmi'),
+            (ex_folder, ex_full_name, 'ml'),
+            (ex_folder, ex_full_name, 'mli'),
+            ('cmos', ex_runner, 'cmo'),
+            ('cmos', ex_runner, 'cmi'),
+            ('cmos', ex_tester, 'cmo'),
+            ('cmos', ex_tester, 'cmi')
+        ])
 
     ensure_file_assmt(ex_folder + '/' + ex_full_name + '.ml')
     for folder, file, extension in required_files:

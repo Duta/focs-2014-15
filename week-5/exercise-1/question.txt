@@ -1,0 +1,14 @@
+Consider the Llama game. For the purpose of this problem a final (winning) position in the game is when all right-facing llamas are past all the left facing llamas.
+
+You are given the type of llamas:
+
+    type llama = R | L | O
+
+where R is a right-facing llama, L a left-facing llama, and O a llama-sized gap. The position is a llama list.
+
+Your task is to write a function winning : llama list -> bool which returns true if a position is winning and false otherwise.
+
+For example:
+
+ - winning [R; O; L] = false
+ - winning [O; O; L; L; R; O; R; O] = true

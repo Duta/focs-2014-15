@@ -10,6 +10,7 @@ def validate(path, *checks):
         program = stripped_file.read()
     subprocess.call('rm -rf ' + stripped_path, shell=True)
 
+    res = None
     for check in checks:
         res = check(program)
         if res: break

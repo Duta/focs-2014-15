@@ -1,0 +1,21 @@
+Consider the llama game. You are given the type of llamas and the type of moves
+
+	type llama = R | L | O
+
+where R is a right-facing llama, L a left-facing llama, and O a llama-sized gap. The position is a llama list. The leading and trailing Os can be ignored.
+
+Your task is to write a function 
+
+	has_solution : llama list -> bool
+
+which returns true if and only if there is some sequence of valid moves from the given position to any winning position. For example
+
+	has_solution [R; R; O; L; L] = true
+
+	has_solution [R; R; L; L] = false
+
+Hints: 
+
+    Try to adapt the has_path function from lecture 12.
+    To avoid searching an infinite number of nodes consider the convergent version of the game (Week 1 Problem). 
+    There are no restrictions as to what libraries and OCaml features you can use in solving this. 
