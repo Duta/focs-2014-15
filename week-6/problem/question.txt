@@ -1,0 +1,5 @@
+Suppose that we represent the nodes of a graph as integers and the undirected graph as a list of pairs (as we did in the lectures). Write a function components : (int * int) list -> int list list that returns all the connected components of the graph, explained below.
+
+A connected component of a graph is the largest list of nodes in the graph such that there is a path between any two nodes. For example, for the graph below components graph = [[1; 2; 8; 9; 10; 20]; [3; 11; 12; 16; 17; 18; 23]; [4; 5; 6; 13; 19; 25]; [14; 15; 21; 22; 24]].
+
+http://i.imgur.com/v35QBha.png
