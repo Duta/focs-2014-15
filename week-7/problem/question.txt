@@ -1,0 +1,14 @@
+Implement the function mul_bin which multiplies two binary numbers. 
+
+    mul_bin : bool list -> bool list -> bool list
+
+For example:
+
+    mul_bin [false; true; true] [true; false; true] = [false; true; true; true; true]
+
+Note: You may use any function from the Pervasives and List modules but not other modules.
+
+Hints:
+
+ - Use the "Peasant multiplication algorithm" (http://en.wikipedia.org/wiki/Multiplication_algorithm#Peasant_or_binary_multiplication) which is the easiest to implement.
+ - Use the two functions from Exercises 1 and 2.

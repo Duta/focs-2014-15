@@ -1,0 +1,9 @@
+Implement a function add_bin_list that adds a list of binary numbers. 
+
+    add_bin_list : bool list list -> bool list
+
+For example:
+
+    add_bin_list [ [true; true; false; true]; [false; false; true]; [true; false; true]] = [false; false; true; false; true; false; false]
+
+Note: You may use any function from the Pervasives and List modules but not other modules.
