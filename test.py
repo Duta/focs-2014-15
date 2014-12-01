@@ -33,11 +33,13 @@ Exiting...
     ex_tester = ex_name + '_test'
     ex_binary = ex_name + '_bin'
 
+    week_has_common = os.path.exists("cmos/common.cmo")
+
     # Ensure needed files exist
     required_files = (([
             ('cmos', 'common', 'cmo'),
             ('cmos', 'common', 'cmi'),
-        ] if os.path.exists("cmos/common.cmo") else [])
+        ] if week_has_common else [])
         + [
             ('..', 'bench', 'cmo'),
             ('..', 'bench', 'cmi'),
@@ -82,6 +84,7 @@ Exiting...
         '-package',
         ','.join(packages),
 
+        'common.cmo' if week_has_common else '',
         'bench.cmo',
         'bench_common.cmo',
         ex_tester + '.cmo',
