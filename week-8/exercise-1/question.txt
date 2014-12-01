@@ -1,0 +1,25 @@
+Consider the following OCaml type for expressions with variable definition:
+
+type exp =
+| Val of int
+| Var of string
+| Sum of exp * exp
+| Prod of exp * exp
+| Let of string * exp * exp ;;
+
+And consider a (provided) helper function string_of_exp which renders an expression as a string, e.g.
+
+string_of_exp ( Let ("x", Val 1, Prod (Var "x", Sum (Val 3, Val 3)))) = "(let x=1 in (x*(3+3)))"
+
+An expression is well defined if every variable name used in an expression is defined, before being used, without being redefined. For example these expressions are well defined (given as strings): 
+
+    "((let x=1 in (x*(3+3)))+(let y=2 in (y*(3+3))))"
+    "(let x=1 in (let y=(x+1) in (x+y)))"
+
+The following are not well defined (given in string representation):
+
+    "(x*(3+3))" : x used but not defined
+    "(let x=(x+1) in (x+y))" : x is used (in its own attempted definition) but not defined (before)
+    "(let y=1 in (let y=(y+1) in (y+y)))" : y is redefined
+
+Write a function check_exp : exp -> bool which returns true if an expression is well defined and false otherwise.

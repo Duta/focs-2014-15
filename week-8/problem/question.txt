@@ -1,0 +1,24 @@
+(Continuation of Week 8 Exercise 1 and Week 8 Exercise 2.)
+
+Using the functions developed in Exercises 1 and 2, write a function 
+
+eval : exp -> int
+
+which takes as argument an expression and produces as result its value if the expression is well defined and 0 otherwise.
+
+Examples:
+
+    # string_of_exp e;;
+    - : string = "((let x=1 in (x*(3+3)))+(let y=2 in (y*(3+3))))"
+    # eval e;;
+    - : int = 18
+
+    # string_of_exp e;;
+    - : string = "(let x=1 in (let y=(x+1) in (x+y)))"
+    # eval e;;
+    - : int = 3
+
+    # string_of_exp e;;
+    - : string = "(let x=1 in (let y=(x+1) in (x+z)))"
+    # eval e;;
+    - : int = 0
