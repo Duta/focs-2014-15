@@ -1,0 +1,3 @@
+For this exercise you may use any functions from the OCaml List module but you may not define recursive functions. The keyword rec is banned.
+
+Define the function med : 'a list -> 'a that computes the median value in a list.
